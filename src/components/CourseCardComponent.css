@@ -1,0 +1,24 @@
+.wbdv-course-grid-card{
+  width: 100px;
+  height: 250px;
+  background-color: white;
+  border-color: #f0f0f0;
+  border-width: 20px;
+  border-style: solid;
+  padding-left: 10px;
+  position:relative;
+}
+
+.wbdv-modified-card{
+  font-size: xx-small;
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+}
+
+.wbdv-icon-course-card{
+  font-size: medium;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}

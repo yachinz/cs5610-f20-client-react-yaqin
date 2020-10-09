@@ -1,0 +1,118 @@
+.wbdv-course-title{
+  color: rgba(255, 255, 255, 1);
+  display: block;
+  padding: .5rem 1rem;
+  font-size: large;
+  font-weight: bolder;
+}
+
+.wbdv-close {
+  color: #ced4da;
+}
+
+.fillscreen{
+  height: 100vh;
+}
+
+.wbdv-course-editor-body{
+  background-color: #1f1e1e;
+}
+
+.wbdv-topic-add-btn{
+  background-color: gray;
+  border-color: gray;
+}
+
+.preview-save{
+  height: 35px;
+}
+
+a:hover{
+  color: #97b3d5;
+}
+
+.wbdv-module-list{
+  margin-top: 10px;
+}
+
+.list-group-item.wbdv-module-item{
+  background-color: #343a40;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.right-field{
+  background-color: white;
+}
+
+.wbdv-topic-pill{
+  margin-right: 5px;
+  margin-left: 5px;
+  width: auto;
+}
+
+.wbdv-row-topic{
+  margin-left: 2px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.wiget-toggle{
+  margin-left: 3px;
+}
+
+.image-preview-widget{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.widget-dropdown{
+  border-radius: 6px;
+  border-color: #ced4da;
+}
+
+.wbdv-widget{
+  margin-top: 10px;
+}
+
+.wbdv-module-item-add-btn{
+  color: white;
+  margin-top: 20px;
+}
+
+.wbdv-widget-item-add-btn{
+  color: #e32727;
+  margin-top: 20px;
+}
+
+
+.wbdv-topic-pill{
+  color: white;
+  background-color: gray;
+  padding: .2rem .2rem;
+  width: auto;
+}
+
+.content-box{
+  position: relative;
+  padding: 24px 16px;
+  border-style: solid;
+  border-color: #d4d4d4;
+}
+
+.form-control {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.wbdv-module-item-title {
+  color: white;
+}
+
+.wbdv-lesson-add-btn {
+  color: white;
+  position: fixed;
+  right: 24px;
+  top: 42px;
+}
