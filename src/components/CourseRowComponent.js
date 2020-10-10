@@ -1,25 +1,20 @@
 import React from "react";
 import {Link} from "react-router-dom";
-// import {updateCourse} from "../services/CourseService";
+import './CourseRowComponent.css'
 
-// const courseBeingEdited = false
-// const editCourse = () => {}
 
 export default class CourseRowComponent extends React.Component {
   state = {
     editing: false,
     course: this.props.course,
-    active: true,
   }
   render() {
     return(
-      <tr className={'courseListRow'}
-          // onClick={() => {
-          //   // document.getElementById(this.props.key).classList.add("activeRow")
-          //   this.setState({
-          //     active: true
-          //   })
-          // }}
+      <tr className={
+        this.props.selected === this.state.course._id? "courseListRow rowActive" : "courseListRow"}
+          onClick={() => {
+            this.props.selectACourse(this.state.course)
+          }}
         >
         <td>
           {
@@ -45,11 +40,11 @@ export default class CourseRowComponent extends React.Component {
         <td className={'d-none d-md-table-cell'}>{this.props.course.modified}</td>
         <td>
           {
-            (this.state.active && !this.state.editing) && <i className="fa fa-trash pull-right wbdv-row wbdv-button wbdv-delete"
+            ((this.props.selected === this.state.course._id) && !this.state.editing) && <i className="fa fa-trash pull-right wbdv-row wbdv-button wbdv-delete"
                                           aria-hidden="true"
                                     onClick={() => this.props.deleteCourse(this.props.course)}/>
           }
-          { (this.state.active && !this.state.editing) && <i className="fa fa-pencil pull-right wbdv-edit"
+          { ((this.props.selected === this.state.course._id) && !this.state.editing) && <i className="fa fa-pencil pull-right wbdv-edit"
                                                                          onClick={() => this.setState({editing: true})}/>
 
           }
@@ -59,8 +54,7 @@ export default class CourseRowComponent extends React.Component {
             onClick={() => {
             this.props.updateCourse(this.state.course)
             this.setState({
-              editing: false,
-            active: false,})
+              editing: false})
           }
           }/>
           }

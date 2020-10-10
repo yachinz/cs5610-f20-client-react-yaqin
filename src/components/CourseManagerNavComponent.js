@@ -1,4 +1,5 @@
 import React from "react";
+import './CourseManagerNavComponent.css'
 
 class CourseManagerNavComponent extends React.Component {
   render() {

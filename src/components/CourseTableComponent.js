@@ -3,10 +3,19 @@ import CourseRowComponent from "./CourseRowComponent";
 import './CourseTableComponent.css'
 
 class CourseTableComponent extends React.Component{
+  state={
+    selectedCourse: ''
+  }
+
+  selectACourse =(course) => {
+    this.setState({
+      selectedCourse: course._id,
+    })
+  }
 
   render() {
     return (
-        <table className="table container wbdv-course-table">
+        <table className="table container wbdv-course-table table-hover">
           <thead>
           <tr>
             <th className="wbdv-header wbdv-title">Title</th>
@@ -27,7 +36,9 @@ class CourseTableComponent extends React.Component{
                     deleteCourse={this.props.deleteCourse}
                     updateCourse={this.props.updateCourse}
                     course={course}
-                    key={course._id}/>
+                    key={course._id}
+                selected={this.state.selectedCourse}
+                selectACourse={this.selectACourse}/>
             )
           }
           </tbody>
