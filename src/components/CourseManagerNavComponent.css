@@ -2,3 +2,19 @@
   text-align: left;
   background-color: white;
 }
+
+.wbdv-new-course{
+  margin-left: 10px;
+}
+
+
+.wbdv-sticky-add-course {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 5;
+}
+
+.wbdv-add-course {
+  color: #e32727;
+}

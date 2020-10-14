@@ -11,28 +11,22 @@ class CourseCardComponent extends React.Component{
 
   render() {
     return (
-        // <div className="card" styles={{width: '18rem'}}>
-        //   <img className="card-img-top"
-        //        src="https://picsum.photos/300/200"/>
-        //   <div className="card-body">
-        //     <h5 className="card-title">Card title</h5>
-        //     <p className="card-text">Card text.</p>
-        //     <Link className="btn btn-primary"
-        //           to={`/course/edit/${this.props.course.id}`}>More...</Link>
-        //   </div>
-        // </div>
         <div className={'col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2 wbdv-course-grid-card'}
              onClick={() => {
-               // document.getElementById(this.props.key).classList.add("activeRow")
                this.setState({
                  active: true
                })
              }}>
-          <div>
+          <div className={'row'}>
+            <img className="card-img-top"
+                              src="https://picsum.photos/300/200" alt={'dummy-img'}/>
+          </div>
+
+          <div className={'wbdv-course-grid-card-title'}>
             {
               this.state.editing &&
               <input
-                  className="form-control"
+                  className="form-control" style={{marginLeft: 0}}
                   onChange={(event) => {
                     const newTitle = event.target.value
                     this.setState(prevState => ({

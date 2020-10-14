@@ -1,12 +1,22 @@
 .wbdv-course-grid-card{
-  width: 100px;
-  height: 250px;
+  width: 18rem;
+  height: 16rem;
   background-color: white;
   border-color: #f0f0f0;
   border-width: 20px;
   border-style: solid;
   padding-left: 10px;
   position:relative;
+}
+
+.wbdv-course-card-edit{
+  margin-left: 0;
+}
+
+.wbdv-course-grid-card-title{
+  position: absolute;
+  left: 6px;
+  bottom: 20px;
 }
 
 .wbdv-modified-card{
@@ -21,4 +31,9 @@
   position: absolute;
   right: 5px;
   bottom: 5px;
+}
+
+.card-img-top{
+  max-width: 18rem;
+  max-height: 10rem;
 }
