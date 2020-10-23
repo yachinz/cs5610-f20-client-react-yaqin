@@ -4,7 +4,7 @@ import './CourseEditorStyle.css'
 class WidgetListComponent extends React.Component {
   render() {
     return (
-        <div>
+        <div className={"d-none"}>
         <div className="row preview-save">
           <div className="col text-right">
             <button type="button" className="btn btn-success btn-sm">save

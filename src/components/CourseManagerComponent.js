@@ -4,6 +4,7 @@ import CourseManagerNavComponent from "./CourseManagerNavComponent";
 import {findAllCourses, updateCourse, deleteCourse, createCourse} from "../services/CourseService";
 import CourseTableComponent from "./CourseTableComponent";
 import CourseGridComponent from "./CourseGridComponent";
+import {Route} from "react-router-dom";
 
 class CourseManagerComponent extends React.Component {
 
@@ -69,11 +70,11 @@ class CourseManagerComponent extends React.Component {
 
   }
 
-  toggleView = () => {
-    this.setState({
-      tableView: !this.state.tableView
-    })
-  }
+  // toggleView = () => {
+  //   this.setState({
+  //     tableView: !this.state.tableView
+  //   })
+  // }
 
 
   render() {
@@ -81,21 +82,18 @@ class CourseManagerComponent extends React.Component {
       <div className={'wbdv-course-manager-body'}>
         <CourseManagerNavComponent
         addCourse={this.addCourse}/>
-        {
-          this.state.tableView &&
-          <CourseTableComponent
-          deleteCourse={this.deleteCourse}
-          updateCourse={this.editCourse}
-          changeView={this.toggleView}
-          courses={this.state.courses}/>
-        }
-        {
-          !this.state.tableView && <CourseGridComponent
+           <Route path="/courses/table" exact>
+              <CourseTableComponent
               deleteCourse={this.deleteCourse}
               updateCourse={this.editCourse}
-              changeView={this.toggleView}
               courses={this.state.courses}/>
-        }
+          </Route>
+          <Route path="/courses/grid" exact>
+            <CourseGridComponent
+                deleteCourse={this.deleteCourse}
+                updateCourse={this.editCourse}
+                courses={this.state.courses}/>
+          </Route>
       </div>
     );
   }

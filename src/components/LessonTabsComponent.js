@@ -1,40 +1,130 @@
 import React from "react";
+import {connect} from "react-redux";
 import './CourseEditorStyle.css'
+import {
+  resetSelectedLesson,
+    resetEditingTopicID,
+    selectALesson,
+    editing,
+    edit,
+    updateLesson,
+    deleteLesson,
+    createLessonForModule,
+} from "../actions/lessonActions"
+import {resetSelectedTopic} from "../actions/topicActions";
 
-class LessonTabsComponent extends React.Component {
+const LessonTabsComponent = (
+    {
+      moduleID,
+      lessons = [],
+      editingID = "",
+      selectingLessonID = "",
+      selectingModuleID = "",
+      resetEditingTopicID,
+      selectALesson,
+      createLessonForModule,
+      deleteLesson,
+      updateLesson,
+      resetSelectedTopic,
+      resetSelectedLesson,
+      edit,
+      editing
+    }) =>
+    <div className={"row"}>
+      <ul className="nav nav-tabs">
+        {
+          (selectingModuleID !== "") && lessons.map(lesson =>
+              <li key={lesson._id} className={
+                selectingLessonID === lesson._id ? "nav-item wbdv-lesson-item-active" :
+                "nav-item wbdv-lesson-item"}>
+                <a className={"nav-link"}>
+                  {
+                    (editingID !== lesson._id) &&
+                    <span onClick={() =>
+                  {
+                    if(lesson._id !== selectingLessonID) {
+                    selectALesson(lesson);
+                    resetEditingTopicID();
+                  }
+                    resetSelectedTopic()
+                  }}>
+                      {lesson.title}
 
-  render() {
-    return (
-        <div className={'row'}>
-          <div className={'col'}>
-        <ul className="navbar-nav flex-row wbdv-lesson-tabs d-none d-sm-flex">
-          <li className="nav-item">
-            <a className="nav-link">Build</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link">Pages</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link">Theme</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link">Store</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link">Apps</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link">Settings</a>
-          </li>
-        </ul>
-          </div>
-          <div className={'col'}>
-        <i className="fa fa-plus pull-right fa-2x wbdv-lesson-add-btn"
-       aria-hidden="true"/>
-          </div>
-        </div>
-    )
-  }
-}
+                <i className="fa fa-pencil fa-pull-right" onClick={() =>
+                    edit(lesson)
+                }/>
 
-export default LessonTabsComponent
+                  </span>
+                  }
+
+                  {
+                    (editingID === lesson._id) &&
+                    <span>
+                      <input
+                          onChange={(event) =>
+                              editing({
+                                ...lesson,
+                                title: event.target.value
+                              })}
+                          value={lesson.title}/>
+                        <i className="fa fa-check fa-pull-right" onClick={() =>
+                            updateLesson(lesson)}/>
+                        <i className="fa fa-trash fa-pull-right" onClick={() =>
+                        {deleteLesson(lesson._id);
+                          resetSelectedLesson();
+                          resetSelectedTopic()}
+
+                        }/>
+
+
+
+                  </span>
+                  }
+                </a>
+              </li>
+          )
+        }
+
+        {
+          (selectingModuleID !== "") &&
+          <i className={"fa fa-plus fa-2x pull-right"}
+             onClick={() => createLessonForModule(moduleID)}/>
+        }
+
+      </ul>
+
+    </div>
+
+const stateToPropertyMapper = (state) => ({
+  lessons: state.lessonReducer.lessons,
+  editingID: state.lessonReducer.editingID,
+  selectingLessonID: state.lessonReducer.selectingID,
+  selectingModuleID: state.moduleReducer.selectingID,
+  moduleID: state.lessonReducer.moduleId,
+  courseID: state.courseReducer.course._id
+})
+
+const dispatchToPropertyMapper = (dispatch) => ({
+  resetEditingTopicID: () => resetEditingTopicID(dispatch),
+
+  selectALesson: (lesson) => selectALesson(dispatch, lesson),
+
+  edit: (lesson) => edit(dispatch, lesson),
+
+  editing: (lesson) => editing(dispatch, lesson),
+
+  updateLesson: (newLesson) => updateLesson(dispatch, newLesson),
+
+  deleteLesson: (lessonId) => deleteLesson(dispatch, lessonId),
+
+  createLessonForModule: (moduleId) => createLessonForModule(dispatch, moduleId),
+
+  resetSelectedTopic: () => resetSelectedTopic(dispatch),
+
+  resetSelectedLesson: () => resetSelectedLesson(dispatch),
+})
+
+export default connect
+(stateToPropertyMapper,
+    dispatchToPropertyMapper)
+(LessonTabsComponent)

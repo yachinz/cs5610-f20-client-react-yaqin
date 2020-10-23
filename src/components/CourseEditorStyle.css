@@ -46,11 +46,7 @@ a:hover{
   background-color: white;
 }
 
-.wbdv-topic-pill{
-  margin-right: 5px;
-  margin-left: 5px;
-  width: auto;
-}
+
 
 .wbdv-row-topic{
   margin-left: 2px;
@@ -87,11 +83,13 @@ a:hover{
 }
 
 
-.wbdv-topic-pill{
-  color: white;
-  background-color: gray;
+.wbdv-topic-pill-active{
+  background-color: #c6c4c4;
   padding: .2rem .2rem;
   width: auto;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 
 .content-box{
@@ -115,4 +113,28 @@ a:hover{
   position: fixed;
   right: 24px;
   top: 14px;
+}
+
+.wbdv-module-item-active{
+  background-color: #d4d4d4;
+}
+
+.wbdv-lesson-item-active{
+  background-color: #f0f0f0;
+  border-color: #d4d4d4;
+  border-style: solid;
+  border-width: thin;
+}
+
+.wbdv-topic-pill{
+  background-color: #f0f0f0;
+  padding: .2rem .2rem;
+  width: auto;
+  margin-top: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.wbdv-pills-plus{
+  margin-top: 10px;
 }

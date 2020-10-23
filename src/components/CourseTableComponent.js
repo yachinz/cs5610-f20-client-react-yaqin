@@ -1,6 +1,7 @@
 import React from "react";
 import CourseRowComponent from "./CourseRowComponent";
 import './CourseTableComponent.css'
+import {Link} from "react-router-dom";
 
 class CourseTableComponent extends React.Component{
   state={
@@ -24,8 +25,11 @@ class CourseTableComponent extends React.Component{
             <th className="wbdv-header">
               <i className="fa fa-sort-alpha-asc fa-pull-right wbdv-header wbdv-sort"
                  aria-hidden="true"/>
-              <i className="fa fa-th-list fa-pull-right wbdv-button wbdv-list-layout"
-                 aria-hidden="true" onClick={() => this.props.changeView()}/>
+                 <Link to={"/courses/grid"}>
+                   <i className="fa fa-th-list fa-pull-right wbdv-button wbdv-list-layout"
+                      aria-hidden="true"/>
+                 </Link>
+
             </th>
           </tr>
           </thead>

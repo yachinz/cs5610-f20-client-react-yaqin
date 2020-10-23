@@ -1,6 +1,7 @@
 import React from "react";
 import CourseCardComponent from "./CourseCardComponent";
 import './CourseGridComponent.css'
+import {Link} from "react-router-dom";
 
 class CourseGridComponent extends React.Component{
   render() {
@@ -16,8 +17,11 @@ class CourseGridComponent extends React.Component{
           <div className={'col-4 wbdv-icon-toggle'}>
             <i className="fa fa-sort-alpha-asc wbdv-header wbdv-sort"
                                       aria-hidden="true"/>
-                          <i className="fa fa-th wbdv-button wbdv-grid-layout"
-                                   aria-hidden="true" onClick={() => this.props.changeView()}/>
+            <Link to={"/courses/table"}>
+              <i className="fa fa-th wbdv-button wbdv-grid-layout"
+                                          aria-hidden="true"/>
+            </Link>
+
 
 
           </div>

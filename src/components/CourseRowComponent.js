@@ -31,7 +31,7 @@ export default class CourseRowComponent extends React.Component {
           }
           {
             !this.state.editing &&
-            <Link to={`/edit/${this.props.course._id}`}><i
+            <Link to={`/editor/${this.props.course._id}`}><i
     className="fa fa-file-text-o wbdv-row wbdv-icon"
     aria-hidden="true"/> {this.props.course.title}</Link>
           }

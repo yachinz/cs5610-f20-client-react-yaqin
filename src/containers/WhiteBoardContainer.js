@@ -1,5 +1,6 @@
 import React from "react";
-import {Route} from "react-router-dom";
+import {Route}
+  from 'react-router-dom'
 import Login from "../components/Login";
 import Register from "../components/Register";
 import Profile from "../components/Profile";
@@ -15,9 +16,11 @@ class WhiteBoardContainer extends React.Component {
           <Route path="/login" exact component={Login}/>
           <Route path="/register" exact component={Register}/>
           <Route path="/profile" exact component={Profile}/>
-          <Route path="/courses" render={() => <CourseManagerComponent/>}/>
+          <Route path="/courses/table" exact component= {CourseManagerComponent}/>
+          <Route path="/courses/grid" exact component= {CourseManagerComponent}/>
           <Route
-              path="/edit/:courseId"
+              path={["/editor/:courseId", "/editor/:courseId/modules/:moduleId",
+                "/editor/:courseId/modules/:moduleId/lessons/:lessonId"]}
               exact
               component={CourseEditorComponent}/>
         </div>
