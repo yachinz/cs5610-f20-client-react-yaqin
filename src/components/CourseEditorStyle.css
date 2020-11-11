@@ -14,6 +14,10 @@
   height: 100vh;
 }
 
+.col-3 {
+  background-color: #1f1e1e;
+}
+
 .wbdv-course-editor-body{
   background-color: #1f1e1e;
 }
@@ -46,6 +50,9 @@ a:hover{
   background-color: white;
 }
 
+ul{
+  padding-inline-start: 0
+}
 
 
 .wbdv-row-topic{
@@ -94,9 +101,25 @@ a:hover{
 
 .content-box{
   position: relative;
-  padding: 24px 16px;
-  border-style: solid;
-  border-color: #d4d4d4;
+}
+
+.wbdv-toggle{
+  margin-top: 6px;
+  margin-left: 3px;
+}
+
+.wbdv-btn-delete{
+  margin-left: 6px;
+}
+
+.wbdv-btn-up{
+  margin-left: 6px;
+  margin-right: 3px;
+}
+
+.wbdv-btn-down{
+  margin-left: 3px;
+  margin-right: 6px;
 }
 
 .form-control {

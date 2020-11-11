@@ -1,6 +1,6 @@
 const initialState = {
   topics: [],
-  selectingID: "",
+  selectingID: "empty",
   editingID: "",
   lessonID: ""
 }
@@ -21,7 +21,7 @@ const topicReducer = (state=initialState, action) => {
     case "RESET_SELECTED_TOPIC":
       return {
         ...state,
-        selectingID: ""
+        selectingID: "empty"
       }
 
     case "SELECTED_TOPIC":

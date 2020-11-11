@@ -4,7 +4,7 @@ import NavTabsComponent from "./NavTabsComponent";
 import './CourseEditorStyle.css'
 import ModuleListComponent from "./ModuleListComponent";
 import TopicPillsComponent from "./TopicPillsComponent";
-import WidgetListComponent from "./WidgetListComponent";
+import WidgetListsComponent from "./WidgetListsComponent";
 
 import {findCourseById} from "../services/CourseService";
 import {connect} from "react-redux";
@@ -19,6 +19,7 @@ import {
   resetSelectedLesson,
 } from "../actions/lessonActions"
 import {findTopicsForLesson} from "../actions/topicActions"
+import {findWidgetsForTopic} from "../services/WidgetService"
 
 
 
@@ -40,6 +41,10 @@ class CourseEditorComponent extends React.Component {
         this.props.selectedLessonID !== "") {
       this.props.findTopicsForLesson(this.props.selectedLessonID)
     }
+    if (this.props.selectedTopicID !== prevProps.selectedTopicID &&
+        this.props.selectedTopicID !== "empty") {
+      this.props.findWidgetsForTopic(this.props.selectedTopicID)
+    }
   }
 
   render() {
@@ -50,6 +55,7 @@ class CourseEditorComponent extends React.Component {
             this.props.resetSelectedModuleID();
             this.props.resetSelectedLessonID();
             this.props.resetEditingModule();
+            this.props.resetSelectedTopicId();
           }}><i className="fa fa-times wbdv-course-editor wbdv-close"/></Link>
 
           <div className="wbdv-course-title">{this.props.course.title}</div>
@@ -62,7 +68,7 @@ class CourseEditorComponent extends React.Component {
             <div className={'col-sm-9 right-field'}>
               <LessonTabsComponent/>
               <TopicPillsComponent/>
-              <WidgetListComponent/>
+              <WidgetListsComponent/>
           </div>
           </div>
 
@@ -95,8 +101,21 @@ const propertyToDispatchMapper = (dispatch) => ({
 
   resetSelectedModuleID : () => resetSelectedModule(dispatch),
 
+  resetSelectedTopicId: () => dispatch({
+    type:"RESET_SELECTED_TOPIC",
+  }),
+
   resetSelectedLessonID : () => resetSelectedLesson(dispatch),
-  findTopicsForLesson: (lessonId) => findTopicsForLesson(dispatch, lessonId)
+  findTopicsForLesson: (lessonId) => findTopicsForLesson(dispatch, lessonId),
+
+  findWidgetsForTopic: (topicId)=> {
+    findWidgetsForTopic(topicId).then(widgets => {
+      dispatch({
+        type: "GET_WIDGETS_FOR_TOPIC",
+        widgets: widgets.sort((a, b) => a.widgetOrder - b.widgetOrder)
+      })
+    })
+  }
 })
 
 export default connect
