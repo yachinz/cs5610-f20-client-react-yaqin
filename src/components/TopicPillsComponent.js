@@ -39,7 +39,7 @@ const TopicPillsComponent = (
                     "nav-link wbdv-topic-pill" : "nav-link wbdv-topic-pill-active"
                 }>
                   {
-                    (editingID !== topic._id) && <span>
+                    (editingID !== topic._id) && <span className={"click-cursor"}>
                     {topic.title}
                       <i className="fa fa-pencil" onClick={() =>
                           edit(topic)

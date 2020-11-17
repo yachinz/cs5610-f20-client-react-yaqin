@@ -46,7 +46,7 @@ export const addNewWidget = (topicId, dummyId, order, dispatch) =>{
       "widgetOrder": order,
       "text": "new heading",
       "size": "3",
-      "topicId": topicId
+      "topicId": topicId,
     }
   })
 }

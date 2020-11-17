@@ -40,7 +40,7 @@ const LessonTabsComponent = (
                 <a className={"nav-link"}>
                   {
                     (editingID !== lesson._id) &&
-                    <span onClick={() =>
+                    <span className={"click-cursor"} onClick={() =>
                   {
                     if(lesson._id !== selectingLessonID) {
                     selectALesson(lesson);

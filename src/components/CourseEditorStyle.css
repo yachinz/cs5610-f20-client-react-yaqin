@@ -14,6 +14,10 @@
   height: 100vh;
 }
 
+.nav-link{
+  color: #282c34;
+}
+
 .col-3 {
   background-color: #1f1e1e;
 }
@@ -50,9 +54,9 @@ a:hover{
   background-color: white;
 }
 
-ul{
-  padding-inline-start: 0
-}
+/*ul{*/
+/*  padding-inline-start: 0*/
+/*}*/
 
 
 .wbdv-row-topic{
@@ -160,4 +164,13 @@ ul{
 
 .wbdv-pills-plus{
   margin-top: 10px;
+}
+
+.image-preview-widget{
+  max-width: 50%;
+  max-height: 50%;
+}
+
+.click-cursor{
+  cursor: pointer;
 }

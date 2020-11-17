@@ -1,28 +1,10 @@
 const initialState = {
   widgets: [
-    {
-      "name": "test1",
-      "id": "Widget_123456789012343",
-      "type": "HEADING",
-      "widgetOrder": 0,
-      "text": "this is a heading",
-      "size": "1",
-      "topicId": "topic1"
-    },
-    {
-      "name": "test2",
-      "id": "Widget_23434235465768",
-      "type": "PARAGRAPH",
-      "widgetOrder": 1,
-      "text": "this is a paragraph",
-      "size": "-1",
-      "topicId": "topic1"
-    }
   ],
   deleteOldWidgets: [],
   newWidgets: [],
   editing: true,
-  dummyID: 1
+  dummyID: -1
 }
 
 const widgetReducer = (state = initialState, action) => {
@@ -38,7 +20,7 @@ const widgetReducer = (state = initialState, action) => {
         ...state,
         widgets:[...state.widgets, action.widget],
         newWidgets: [...state.newWidgets, action.widget.id],
-        dummyID: state.dummyID + 1
+        dummyID: state.dummyID - 1
       }
     case "RESET_WIDGETS":
       return {

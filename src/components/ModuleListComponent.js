@@ -42,7 +42,7 @@ const ModuleListComponent = (
 
 
                     {(editingID !== module._id) &&
-                        <span onClick={() =>
+                        <span className={"click-cursor"} onClick={() =>
                     { if(selectingID !== module._id) {
                       selectModule(module);
 

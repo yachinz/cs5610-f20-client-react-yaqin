@@ -1,5 +1,5 @@
-const widgetUrl = "https://cs5610-fall-2020-yaqinzhou.herokuapp.com/api/widgets"
-const topicUrl = "https://cs5610-fall-2020-yaqinzhou.herokuapp.com/api/topics"
+const widgetUrl = "http://localhost:8080/api/widgets"
+const topicUrl = "http://localhost:8080/api/topics"
 
 
 export const findWidgetsForTopic = (topicId) =>
